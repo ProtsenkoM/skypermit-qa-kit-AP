@@ -1,2 +1,1 @@
 # skypermit-qa-kit
-test 
