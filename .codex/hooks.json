@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$(git rev-parse --show-toplevel)/.codex/hooks/usage-report.mjs\"",
+            "timeout": 3
+          }
+        ]
+      }
+    ]
+  }
+}
