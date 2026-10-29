@@ -32,7 +32,7 @@ Interpret the optional arguments as `[max-rules] [gates]`:
 
    This section is the gap script's coverage key, not requirement evidence. The `Doc ref` and `Expected result` must independently support the tested behavior. For the inactive-zone rule, test the settled `ZONE` failure and report the still-open confirmation of `ZC-2026.1 §4` separately; do not present that citation as confirmed in the expected result.
 4. After each case is written, request one independent review from a `tc-verifier` subagent. Provide the case path, selected row, and authoritative requirement paths. Require one verdict: `відповідає`, `не відповідає`, or `документація мовчить`, with citations and rationale. Retain a case only after `відповідає`. For `не відповідає`, correct and re-submit for review or remove the newly created case. For `документація мовчить`, remove the new case and record the unresolved behavior with source file and section. Never remove or overwrite a pre-existing case.
-5. Re-run the gap script with the same filters to confirm accepted cases are no longer listed. Run `git diff --check` and `git status --short`, then manually trace every retained expected result to authoritative documentation.
+5. **Не використовується.** Пункт залишено в документі на прохання користувача, але він не є частиною виконуваного workflow: не повторюй gap script, не запускай `git diff --check` чи `git status --short` і не виконуй фінальне ручне трасування за цим пунктом. Виконуй кроки 1–4.
 
 ## Response
 

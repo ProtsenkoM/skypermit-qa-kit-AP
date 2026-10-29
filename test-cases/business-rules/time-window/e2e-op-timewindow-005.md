@@ -1,4 +1,4 @@
-# E2E-OP-TIMEWINDOW-005 — Reject a flight window longer than 240 minutes
+# E2E-OP-TIMEWINDOW-005 — Reject a flight window shorter than 15 minutes
 
 ## ID
 E2E-OP-TIMEWINDOW-005
@@ -12,11 +12,11 @@ High
 
 ## Precondition
 - An authenticated Operator owns a `DRAFT` flight request whose pilot, aircraft, zone, and other time-window values pass all earlier checks.
-- The request window starts between 6 hours and 60 days from evaluation time.
+- The request window is 14 minutes long and starts within the permitted booking horizon.
 
 ## Test data
-- `window_start`: evaluation time + 24 hours
-- `window_end`: `window_start` + 241 minutes
+- `window_start`: `2026-10-30T18:00:00Z`
+- `window_end`: `2026-10-30T18:14:00Z`
 
 ## Steps
 1. Send `POST /api/v1/flight-requests/{id}/validate` for the request.

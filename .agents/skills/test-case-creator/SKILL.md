@@ -1,9 +1,12 @@
 ---
+model: GPT-6-Sol
 name: test-case-creator
 description: Create exactly one evidence-based, low-level manual test case as a Markdown file when the user asks for an atomic verification from requirements. Do not use for test plans, checklists, multi-check scenarios, or batches of test cases.
 ---
 
 # Test Case Creator
+
+Use GPT-6-Sol for this workflow.
 
 Create one test case that verifies one observable rule or outcome.
 
