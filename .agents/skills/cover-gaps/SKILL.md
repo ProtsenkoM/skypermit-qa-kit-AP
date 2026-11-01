@@ -3,6 +3,7 @@ model: GPT-6-Sol
 name: cover-gaps
 description: Finds SkyPermit business rules without test cases, generates cases through test-case-creator, and accepts only those verified by tc-verifier.
 argument-hint: "[max-rules] [gates]"
+allowed-tools: Read Grep Glob Write(test-cases/**)
 ---
 
 # Cover SkyPermit business-rule gaps
