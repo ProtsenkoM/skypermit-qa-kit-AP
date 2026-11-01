@@ -12,10 +12,10 @@ Create one test case that verifies one observable rule or outcome.
 
 ## Evidence
 
-1. Require a source file or directory and one behavior to verify. Infer the behavior only when the request and source make it unambiguous.
-2. Follow the repository's `AGENTS.md`, authority order, and read-only boundaries. Inspect related authoritative sources when repository instructions require reconciliation.
+1. Require a Confluence source page or link and one behavior to verify. Infer the behavior only when the request and source make it unambiguous.
+2. Follow the repository's `AGENTS.md`, authority order, and read-only boundaries. Read requirements from Confluence space `SkyPermit Docs` (key `SD`) using `mcp__atlassian__search` to locate pages and `mcp__atlassian__getConfluencePage` to read them. Reconcile related pages: data model, state machine, API contract, frontend scope, business rules, open questions, and clarifications.
 3. Do not invent expected behavior. If a conflict or gap changes the expected result, ask one concise question instead of writing the case.
-4. Cite the exact requirement file and section in `Doc ref`. Implementation may confirm behavior but does not replace documented requirements.
+4. Cite the exact Confluence page, section, and link in `Doc ref`. Implementation may confirm behavior but does not replace documented requirements. The local `../skypermit/docs/` files are not the source for case requirements.
 
 ## Example
 

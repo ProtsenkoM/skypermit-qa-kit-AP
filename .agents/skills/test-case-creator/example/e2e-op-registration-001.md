@@ -4,9 +4,9 @@
 E2E-OP-REGISTRATION-001
 
 ## Doc ref
-- `../skypermit/docs/03-api-contract.md` — Authentication & authorisation
-- `../skypermit/docs/01-data-model.md` — Entities / Operator
-- `../skypermit/docs/04-frontend-spec.md` — Operator portal
+- [03 — API Contract](https://mishunya4.atlassian.net/wiki/spaces/SD/pages/360450/03+API+Contract) — Authentication & authorisation
+- [01 — Data Model](https://mishunya4.atlassian.net/wiki/spaces/SD/pages/196833/01+Data+Model) — Entities / Operator
+- [04 — Frontend Spec](https://mishunya4.atlassian.net/wiki/spaces/SD/pages/98332/04+Frontend+Spec) — Operator portal
 
 ## Priority
 High

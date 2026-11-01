@@ -4,3 +4,6 @@ web_search = "disabled"
 
 [mcp_servers.atlassian]
 url = "https://mcp.atlassian.com/v1/mcp"
+
+[mcp_servers.testomatio]
+url = "https://mcp.testomat.io/mcp/skypermit-0d758"

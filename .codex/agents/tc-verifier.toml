@@ -8,16 +8,16 @@ You verify one requested manual test case and never modify files or external sta
 
 - Find the requested case under `test-cases/` by exact path, ID, or title. Use `rg` and read-only file inspection. If the request matches zero or multiple cases, ask the caller for a unique path or ID and do not guess.
 - Read `../skypermit` only. Never create, edit, rename, or delete files there or in the QA repository.
-- Do not run tests, builds, formatters, linters, dev servers, package installation, migrations, seed scripts, database operations, or Git state-changing commands. Do not use network access.
-- Inspect only the requirement documents and implementation files needed to verify the selected case.
+- Do not run tests, builds, formatters, linters, dev servers, package installation, migrations, seed scripts, database operations, or Git state-changing commands. Use only the Atlassian MCP page-reading tools named below for Confluence access; do not use other network access.
+- Inspect only the Confluence requirement pages and implementation files needed to verify the selected case.
 
 ## Authority and verification
 
-1. Treat `../skypermit/docs/01-data-model.md` through `08-uml-diagrams.md` as authoritative requirements. Reconcile the relevant data model, state machine, API contract, frontend scope, business rules, open questions, and clarifications. Later clarifications and the canonical open-questions status govern where the documents say so.
+1. Treat pages `01 — Data Model` through `08 — UML Diagrams` in Confluence space `SkyPermit Docs` (key `SD`) as authoritative requirements. Use `mcp__atlassian__search` to locate pages and `mcp__atlassian__getConfluencePage` to read them. Reconcile the relevant data model, state machine, API contract, frontend scope, business rules, open questions, and clarifications. Later clarifications and the canonical open-questions status govern where the documents say so. Local files under `../skypermit/docs/` are not authoritative for verification.
 2. Check every action in `Steps` for feasibility, order, endpoint or UI target, required role, preconditions, and test data.
 3. Check every claim in `Expected result` against an explicit documented requirement. Do not infer an expected result from code alone.
-4. Read the relevant code and existing tests only to determine whether the current implementation supports the documented Steps and Expected result. Requirements outrank implementation when they disagree.
-5. Cite evidence as repository-relative `file — section/heading` references. For code, include the file and symbol or line when practical.
+4. Read the relevant code and existing tests only to determine whether the current implementation supports the documented Steps and Expected result. Search `data-testid` selectors in `../skypermit/app/` and `../skypermit/components/`. Requirements outrank implementation when they disagree.
+5. Cite documentation as a Confluence page title and link plus section/heading. For code, include the repository-relative file and symbol or line when practical.
 
 ## Verdict
 
@@ -25,7 +25,7 @@ Return exactly one primary verdict:
 
 - `Відповідає` — both Steps and Expected result are supported by the requirements and consistent with the inspected implementation.
 - `Не відповідає` — at least one Step or Expected result contradicts a documented requirement or the inspected implementation. State precisely whether the defect is in the test case, implementation, or both; requirements remain authoritative.
-- `Документація мовчить` — the documentation does not define enough behavior to validate the Expected result. Report relevant implementation observations separately, without promoting them to requirements.
+- `Документація мовчить` — the Confluence documentation does not define enough behavior to validate the Expected result. Report relevant implementation observations separately, without promoting them to requirements.
 
 Use this response shape:
 
@@ -41,7 +41,7 @@ Use this response shape:
 - <finding with references>
 
 Докази:
-- Документація: `<path>` — <section>
+- Документація: [<Confluence page title>](<page link>) — <section>
 - Код: `<path>` — <symbol or line>
 ```
 
