@@ -1,7 +1,7 @@
 ---
 model: GPT-6-Sol
 name: cover-gaps
-description: Finds SkyPermit business rules without test cases, generates cases through test-case-creator, and accepts only those verified by tc-verifier.
+description: Finds SkyPermit business rules without UI test cases, generates cases through ui-test-case-creator, and accepts only those verified by tc-verifier.
 argument-hint: "[max-rules] [gates]"
 allowed-tools: Read Grep Glob Write(test-cases/**)
 ---
@@ -21,7 +21,7 @@ Interpret the optional arguments as `[max-rules] [gates]`:
 ## Workflow
 
 1. Run `node scripts/uncovered-rules.mjs [--max N] [--gate GATE]` according to the arguments above. The script reads local `../skypermit/docs/06-business-rules.md` §6, applies `07-clarifications.md`, and checks Markdown cases under `test-cases/`. This local read is an explicit exception because the script cannot use MCP; use its output only to select candidate rules. Treat every selected row as a distinct rule identified by its exact `gate`, `condition`, and `rule_reference`; `ZC-2026.1 §2` appears under both `AIRCRAFT` and `ZONE`.
-2. For each selected row, invoke the local `test-case-creator` skill as a separate one-case task. Provide the row and relevant gate or registration operation. Read authoritative requirements from Confluence space `SkyPermit Docs` (key `SD`) using `mcp__atlassian__search` and `mcp__atlassian__getConfluencePage`; reconcile the data model, state machine, API contract, frontend scope, business rules, clarifications, and current open questions as needed. Do not infer requirements from implementation alone. If a documentation gap prevents a supported expected result, do not fabricate a case; record the unresolved question with its Confluence page and section.
+2. For each selected row, invoke the local `ui-test-case-creator` skill to create the complete applicable set of UI/E2E cases for that rule, as a separate task. Provide the row and relevant gate or registration operation. Read authoritative requirements from Confluence space `SkyPermit Docs` (key `SD`) using `mcp__atlassian__search` and `mcp__atlassian__getConfluencePage`; reconcile the data model, state machine, API contract, frontend scope, business rules, clarifications, and current open questions as needed. Do not infer requirements from implementation alone. If a documentation gap prevents a supported expected result, do not fabricate a case; record the unresolved question with its Confluence page and section.
 3. In every created case, add the following section after the template sections, substituting the row's exact values:
 
    ```markdown
