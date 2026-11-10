@@ -11,3 +11,6 @@ url = "https://mcp.testomat.io/mcp/skypermit-0d758"
 [mcp_servers.playwright]
 command = "npx"
 args = ["@playwright/mcp@latest"]
+
+[mcp_servers.postman]
+url = "https://mcp.postman.com/minimal"
