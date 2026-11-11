@@ -37,7 +37,7 @@ Use the existing `jira-intake`, `story-doc-check`, `ui-test-case-creator`, and `
 ### 1. Jira intake and UI routing
 
 1. Require a Jira issue key and run `jira-intake` to obtain its JSON record. Preserve that record as the source for issue title, acceptance criteria, issue type, and linked Confluence URL; do not infer or supplement acceptance criteria.
-2. Continue only when `check_type` is exactly `ui`. If it is `api`, stop and tell the user that API issues will have a separate flow. If it is `null` or otherwise ambiguous, stop and report the intake caveat; do not infer the type from issue content.
+2. Continue only when `check_type` is exactly `ui`. If it is `api`, stop and direct the user to `/story-to-api-tests`. If it is `null` or otherwise ambiguous, stop and report the intake caveat; do not infer the type from issue content.
 3. If there are no explicit acceptance criteria, report that fact and stop rather than deriving criteria from the title or description.
 
 ### 2. Documentation and implementation report gate

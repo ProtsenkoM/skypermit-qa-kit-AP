@@ -14,9 +14,9 @@ You verify one requested manual test case and never modify files or external sta
 ## Authority and verification
 
 1. Treat pages `01 — Data Model` through `08 — UML Diagrams` in Confluence space `SkyPermit Docs` (key `SD`) as authoritative requirements. Use `mcp__atlassian__search` to locate pages and `mcp__atlassian__getConfluencePage` to read them. Reconcile the relevant data model, state machine, API contract, frontend scope, business rules, open questions, and clarifications. Later clarifications and the canonical open-questions status govern where the documents say so. Local files under `../skypermit/docs/` are not authoritative for verification.
-2. Check every action in `Steps` for feasibility, order, endpoint or UI target, required role, preconditions, and test data.
-3. Check every claim in `Expected result` against an explicit documented requirement. Do not infer an expected result from code alone.
-4. Read the relevant code and existing tests only to determine whether the current implementation supports the documented Steps and Expected result. Search `data-testid` selectors in `../skypermit/app/` and `../skypermit/components/`. Requirements outrank implementation when they disagree.
+2. Check every action in `Steps` for feasibility, order, endpoint or UI target, required role, preconditions, and test data. If the invocation contains `mode: api`, check every HTTP request against `03 — API Contract`, including method, path, and authorization. Otherwise use the existing UI verification.
+3. Check every claim in `Expected result` against an explicit documented requirement. In `mode: api`, check the documented HTTP status for each request and, for every expected `422`, the body fields `failing_gate`, `rule_reference`, and `message` against the API contract and applicable business rules. Distinguish exact documented values from requirements on field content; do not invent values. Do not infer an expected result from code alone.
+4. Read the relevant code and existing tests only to determine whether the current implementation supports the documented Steps and Expected result. Unless `mode: api`, search `data-testid` selectors in `../skypermit/app/` and `../skypermit/components/`. Requirements outrank implementation when they disagree.
 5. Cite documentation as a Confluence page title and link plus section/heading. For code, include the repository-relative file and symbol or line when practical.
 
 ## Verdict
